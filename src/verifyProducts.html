@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Verify Product</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Fonts & Icons -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    /* Background */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("images/bg2.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      color: #f8f9fa;
+      margin: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(0,0,0,0.85) !important;
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid #ffcc00;
+    }
+    .navbar-brand {
+      color: #ffcc00 !important;
+      font-weight: bold;
+    }
+    .navbar-brand span {
+      display: block;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+    .nav-link:hover {
+      color: #ffcc00 !important;
+      transform: scale(1.05);
+      transition: 0.3s;
+    }
+
+    /* Glassy Section/Card */
+    .section-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 15px;
+      margin: 40px auto;
+      max-width: 900px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffcc00;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    /* QR Reader */
+    #qr-reader {
+      margin: 20px auto;
+    }
+    #qr-reader-results {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #ffcc00;
+    }
+
+    /* Form */
+    .form-control {
+      border-radius: 10px;
+    }
+    .btn-register {
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      border-radius: 25px;
+      padding: 10px 25px;
+      transition: 0.3s;
+    }
+    .btn-register:hover {
+      background: #ff9900;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Table */
+    .table thead th {
+      color: #ffcc00;
+    }
+    .table tbody td {
+      color: #fff;
+    }
+    .table {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Fake Product Identification <span>through Blockchain</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+      <span class="fa fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="manufacturer.html" class="nav-link">Manufacturer</a></li>
+        <li class="nav-item"><a href="seller.html" class="nav-link">Seller</a></li>
+        <li class="nav-item"><a href="consumer.html" class="nav-link">Consumer</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Section -->
+<section class="section-card">
+  <h2>Verify Products</h2>
+
+  <!-- QR Code Scanner -->
+  <div id="qr-reader" style="width:300px;"></div>
+  <div id="qr-reader-results">Scan Product QR Code</div>
+
+  <!-- Input Form -->
+  <form style="margin-top:30px;">
+    <div class="form-group">
+      <label for="productSN">Product SN</label>
+      <input type="text" class="form-control" id="productSN" disabled placeholder="Enter Product SN">
+
+      <label for="consumerCode" style="margin-top:15px;">Consumer Code</label>
+      <input type="text" class="form-control" id="consumerCode" placeholder="Enter Consumer Code">
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+      <button type="submit" class="btn btn-register" id="register">Get Product Status</button>
+    </div>
+  </form>
+</section>
+
+<!-- Verification Result Table -->
+<section class="section-card">
+  <h2>Is the product sold to consumer fake or not?</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product Verification Result</th>
+      </tr>
+    </thead>
+    <tbody id="logdata"></tbody>
+  </table>
+  <center><p>Your address is <b id="add"></b></p></center>
+</section>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/web3.min.js"></script>
+<script src="js/truffle-contract.js"></script>
+<script src="js/verifyProduct.js"></script>
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<script>
+function docReady(fn) {
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    setTimeout(fn, 1);
+  } else {
+    document.addEventListener("DOMContentLoaded", fn);
+  }
+}
+
+docReady(function () {
+  var lastResult;
+  function onScanSuccess(decodedText, decodedResult) {
+    if(decodedText !== lastResult) {
+      lastResult = decodedText;
+      var audio = new Audio('beep.wav');
+      audio.play();
+      document.getElementById('qr-reader-results').innerHTML = decodedText;
+      document.getElementById("productSN").value = decodedText;
+    }
+  }
+  var html5QrcodeScanner = new Html5QrcodeScanner(
+    "qr-reader", { fps: 10, qrbox: 250 }
+  );
+  html5QrcodeScanner.render(onScanSuccess);
+});
+</script>
+
+</body>
+</html>

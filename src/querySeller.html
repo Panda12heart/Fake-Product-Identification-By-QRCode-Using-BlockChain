@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Query Sellers</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("images/bg.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      color: #f8f9fa;
+      margin: 0;
+    }
+
+    .navbar {
+      background: rgba(0,0,0,0.85) !important;
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid #ffcc00;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: #ffcc00 !important;
+    }
+    .navbar-brand span {
+      font-size: 0.9rem;
+      color: #fff;
+      display: block;
+    }
+    .nav-link {
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .nav-link:hover {
+      color: #ffcc00 !important;
+      transform: scale(1.05);
+    }
+
+    h2 {
+      text-align: center;
+      margin: 30px 0;
+      color: #ffcc00;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .form-control {
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid #444;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .form-control:focus {
+      border-color: #ffcc00;
+      box-shadow: 0 0 10px rgba(255,204,0,0.5);
+    }
+
+    .btn-warning {
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-warning:hover {
+      background: #ff9900;
+      transform: scale(1.05);
+    }
+
+    .table {
+      background: rgba(0,0,0,0.6);
+      border-radius: 15px;
+      overflow: hidden;
+      color: #fff;
+    }
+    .table thead {
+      background: #ffcc00;
+      color: #000;
+    }
+    .table tbody tr:hover {
+      background: rgba(255,255,255,0.1);
+      transition: 0.3s;
+    }
+
+    section.container {
+      background: rgba(0,0,0,0.4);
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Fake Product Identification <span>through Blockchain</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+        <span class="fa fa-bars"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav m-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="manufacturer.html" class="nav-link">Manufacturer</a></li>
+          <li class="nav-item"><a href="seller.html" class="nav-link">Seller</a></li>
+          <li class="nav-item"><a href="consumer.html" class="nav-link">Consumer</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Query Form -->
+  <section class="container">
+    <h2>Query Sellers</h2>
+    <div class="form-group">
+      <label for="manufacturerCode">Manufacturer Code</label>
+      <input type="text" class="form-control" id="manufacturerCode" placeholder="Enter manufacturer Code">
+    </div>
+    <button type="submit" class="btn btn-warning" id="register">Get Sellers</button>
+  </section>
+
+  <!-- Sellers Table -->
+  <section class="container">
+    <h2>Sellers</h2>
+    <p>Following are the sellers registered through Blockchain Network</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Brand</th>
+          <th>Code</th>
+          <th>Number</th>
+          <th>Manager</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody id="logdata"></tbody>
+    </table>
+    <center><p>Your address is <b id="add"></b></p></center>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/sellerDataApp.js"></script>
+</body>
+</html>

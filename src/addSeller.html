@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Fake Product Identification - Add Seller</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Fonts & Icons -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      margin: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(0,0,0,0.8);
+      border-bottom: 2px solid #ffcc00;
+    }
+    .navbar-brand {
+      color: #ffcc00 !important;
+    }
+
+    /* Card for Form */
+    .section-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 40px;
+      margin: 40px auto;
+      max-width: 900px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    .section-card h2 {
+      text-align: center;
+      color: #ffcc00;
+      margin-bottom: 30px;
+    }
+
+    /* Form Inputs */
+    .form-control {
+      border-radius: 10px;
+      margin-bottom: 15px;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      border: 1px solid #ffcc00;
+    }
+    .form-control::placeholder {
+      color: #ddd;
+    }
+
+    /* Buttons */
+    .btn-register {
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      border-radius: 25px;
+      padding: 10px 30px;
+      transition: 0.3s;
+    }
+    .btn-register:hover {
+      background: #ff9900;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Fake Product Identification</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+      <span class="fa fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="manufacturer.html" class="nav-link">Manufacturer</a></li>
+        <li class="nav-item"><a href="seller.html" class="nav-link">Seller</a></li>
+        <li class="nav-item"><a href="consumer.html" class="nav-link">Consumer</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Add Seller Section -->
+<section class="section-card">
+  <h2>Add Seller</h2>
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="SellerName">Seller Name</label>
+        <input type="text" class="form-control" id="SellerName" placeholder="Enter seller name">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="SellerBrand">Seller Brand</label>
+        <input type="text" class="form-control" id="SellerBrand" placeholder="Enter seller brand">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="SellerCode">Seller Code</label>
+        <input type="text" class="form-control" id="SellerCode" placeholder="Enter seller code">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="SellerPhoneNumber">Seller Phone Number</label>
+        <input type="text" class="form-control" id="SellerPhoneNumber" placeholder="Enter phone number">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="SellerManager">Seller Manager</label>
+        <input type="text" class="form-control" id="SellerManager" placeholder="Enter manager name">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="SellerAddress">Seller Address</label>
+        <input type="text" class="form-control" id="SellerAddress" placeholder="Enter seller address">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ManufacturerId">Manufacturer ID</label>
+      <input type="text" class="form-control" id="ManufacturerId" placeholder="Enter manufacturer ID">
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-register" id="register">Add the Seller</button>
+    </div>
+  </form>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/web3.min.js"></script>
+<script src="js/truffle-contract.js"></script>
+<script src="js/sellerApp.js"></script>
+
+</body>
+</html>

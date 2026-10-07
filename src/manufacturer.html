@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Fake Product Identification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Fonts & Icons -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+      /* Background with overlay */
+      body {
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                    url("background.jpg"); /* Replace with your image */
+        background-size: cover;
+        background-position: center;
+        font-family: 'Roboto', sans-serif;
+        color: #fff;
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      /* Navbar */
+      .navbar {
+        background: rgba(0, 0, 0, 0.85) !important;
+        backdrop-filter: blur(10px);
+        padding: 12px 20px;
+      }
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #ff9800 !important;
+      }
+      .navbar-brand span {
+        font-size: 1rem;
+        color: #fff;
+        display: block;
+      }
+      .nav-link {
+        color: #fff !important;
+        font-weight: 500;
+        margin: 0 12px;
+        transition: 0.3s;
+      }
+      .nav-link:hover {
+        color: #ff9800 !important;
+      }
+
+      /* Header text */
+      h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #ff9800;
+        margin-top: 40px;
+      }
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #ddd;
+      }
+
+      /* Dashboard */
+      .dashboard {
+        margin-top: 60px;
+        text-align: center;
+      }
+
+      /* Cards */
+      .card-box {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+        transition: 0.3s;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      }
+      .card-box:hover {
+        transform: translateY(-10px);
+      }
+      .card-box i {
+        font-size: 40px;
+        color: #ff9800;
+        margin-bottom: 15px;
+      }
+      .card-box h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+      }
+
+      /* Button */
+      .btn-custom {
+        background: #ff9800;
+        color: white;
+        border-radius: 25px;
+        padding: 8px 20px;
+        display: inline-block;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .btn-custom:hover {
+        background: #e68900;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Fake Product Identification 
+          <span>through Blockchain</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+          <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav m-auto">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="addProduct.html" class="nav-link">Add Product</a></li>
+            <li class="nav-item"><a href="addSeller.html" class="nav-link">Add Seller</a></li>
+            <li class="nav-item"><a href="sellProductManufacturer.html" class="nav-link">Sell Product</a></li>
+            <li class="nav-item"><a href="querySeller.html" class="nav-link">Query Seller</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard container">
+      <h2>Manufacturer Dashboard</h2>
+      <h3>Use the options below to perform operations.</h3>
+      <div class="row mt-4">
+        <div class="col-md-3">
+          <div class="card-box">
+            <i class="fa fa-plus-square"></i>
+            <h3>Add Product</h3>
+            <a href="addProduct.html" class="btn-custom">Go</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card-box">
+            <i class="fa fa-user-plus"></i>
+            <h3>Add Seller</h3>
+            <a href="addSeller.html" class="btn-custom">Go</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card-box">
+            <i class="fa fa-shopping-cart"></i>
+            <h3>Sell Product</h3>
+            <a href="sellProductManufacturer.html" class="btn-custom">Go</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card-box">
+            <i class="fa fa-search"></i>
+            <h3>Query Seller</h3>
+            <a href="querySeller.html" class="btn-custom">Go</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+  </body>
+</html>

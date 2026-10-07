@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Seller Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    /* Background */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("images/bg.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      color: #f8f9fa;
+      margin: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(0,0,0,0.85) !important;
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid #ffcc00;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: #ffcc00 !important;
+    }
+    .navbar-brand span {
+      font-size: 0.9rem;
+      color: #fff;
+      display: block;
+    }
+    .nav-link {
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .nav-link:hover {
+      color: #ffcc00 !important;
+      transform: scale(1.05);
+    }
+
+    /* Section headers */
+    h2 {
+      text-align: center;
+      margin: 30px 0;
+      color: #ffcc00;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    /* Card style */
+    .card-dashboard {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border-radius: 15px;
+      text-align: center;
+      padding: 30px 20px;
+      margin-bottom: 30px;
+      transition: 0.3s;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+    .card-dashboard:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+    }
+    .card-dashboard i {
+      font-size: 40px;
+      color: #ffcc00;
+      margin-bottom: 15px;
+    }
+    .card-dashboard h4 {
+      margin-bottom: 15px;
+    }
+    .btn-warning {
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-warning:hover {
+      background: #ff9900;
+      transform: scale(1.05);
+    }
+
+    /* Container */
+    section.container {
+      background: rgba(0,0,0,0.4);
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Fake Product Identification <span>through Blockchain</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+        <span class="fa fa-bars"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav m-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="sellProductSeller.html" class="nav-link">Sell Product To Consumer</a></li>
+          <li class="nav-item"><a href="queryProducts.html" class="nav-link">Products For Sale</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Section -->
+  <section class="container">
+    <h2>Seller Dashboard</h2>
+    <h3>Go to navigation bar or cards below to perform operations</h3>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card-dashboard">
+          <i class="fa fa-shopping-cart"></i>
+          <h4>Sell Product</h4>
+          <a href="sellProductSeller.html" class="btn btn-warning">Go</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card-dashboard">
+          <i class="fa fa-list"></i>
+          <h4>Products For Sale</h4>
+          <a href="queryProducts.html" class="btn btn-warning">Go</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/sellerDataApp.js"></script>
+</body>
+</html>

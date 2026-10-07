@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Fake Product Identification - Add Product</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Fonts & Icons -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      margin: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(0,0,0,0.8);
+      border-bottom: 2px solid #ffcc00;
+    }
+    .navbar-brand {
+      color: #ffcc00 !important;
+    }
+
+    /* Glassy Form Card */
+    .section-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 40px;
+      margin: 40px auto;
+      max-width: 900px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    .section-card h2 {
+      text-align: center;
+      color: #ffcc00;
+      margin-bottom: 30px;
+    }
+
+    /* Form Inputs */
+    .form-control {
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* Buttons */
+    .btn-register {
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      border-radius: 25px;
+      padding: 10px 30px;
+      transition: 0.3s;
+    }
+    .btn-register:hover {
+      background: #ff9900;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* QR Section */
+    .qr-code {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .qr-code img {
+      border: 3px solid #ffcc00;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .matrix table {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .matrix td {
+      padding: 8px 10px;
+    }
+    .matrix label {
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Fake Product Identification</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+      <span class="fa fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="manufacturer.html" class="nav-link">Manufacturer</a></li>
+        <li class="nav-item"><a href="seller.html" class="nav-link">Seller</a></li>
+        <li class="nav-item"><a href="consumer.html" class="nav-link">Consumer</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Add Product Section -->
+<section class="section-card">
+  <h2>Add Product</h2>
+
+  <div class="matrix">
+    <table>
+      <tr>
+        <td><label for="manufacturerID">Manufacturer ID</label></td>
+        <td><input class="form-control" id="manufacturerID" type="text" /></td>
+        <td><label for="productName">Product Name</label></td>
+        <td><input class="form-control" id="productName" type="text" /></td>
+      </tr>
+      <tr>
+        <td><label for="productSN">Product SN</label></td>
+        <td><input class="form-control" id="productSN" type="text" /></td>
+        <td><label for="productBrand">Product Brand</label></td>
+        <td><input class="form-control" id="productBrand" type="text" /></td>
+      </tr>
+      <tr>
+        <td><label for="productPrice">Product Price</label></td>
+        <td><input class="form-control" id="productPrice" type="text" /></td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="text-align:center; margin-top:20px;">
+    <button type="submit" class="btn btn-register" onclick="fetchQR()">Add Product</button>
+  </div>
+
+  <!-- QR Code Section -->
+  <div class="qr-code">
+    <img hidden id="imgQR" src="" alt="qr-code">
+    <br>
+    <button hidden type="button" class="btn btn-register" id="download" onclick="saveImage()">Download QR Code</button>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/web3.min.js"></script>
+<script src="js/truffle-contract.js"></script>
+<script src="js/productApp.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+
+<script>
+var src;
+function fetchQR(){
+  let qrValue = document.getElementById('productSN').value;
+  let qrImage = document.getElementById('imgQR');
+  qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
+  qrImage.removeAttribute('hidden');
+
+  let downloadBtn = document.getElementById('download');
+  downloadBtn.removeAttribute('hidden');
+}
+
+function saveImage(){
+  saveAs(document.getElementById('imgQR').src, document.getElementById('productSN').value);
+}
+</script>
+
+</body>
+</html>
